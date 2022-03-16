@@ -1,4 +1,4 @@
-package com.java.entities;
+package com.example.entities;
 
 public class Attack {
 	// attributes
