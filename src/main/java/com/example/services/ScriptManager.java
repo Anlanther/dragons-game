@@ -11,27 +11,36 @@ public class ScriptManager {
 	private int attack = randoAttack.nextInt(4);
 
 	public void printWelcome() {
-		System.out.println("Welcome! Are you ready to start your adventure with a dragon of your very own?\n");
-		addWait(3);
+		System.out.println("Welcome! Get ready to start your adventure with a dragon of your very own.\n");
+		addWait(1);
 		System.out.println("During your adventure, you will work with your dragon partner to battle other dragons and "
 				+ "\nboost your score as you go. The aim is to get as high of a score you can without having "
 				+ "\nyour dragon faint or you will have to begin again.\n");
 		addWait(3);
+		System.out.println("For every part of the game make your selection as a number selection or y/n selection.\n");
+		addWait(2);
 		System.out.println("To start, pick your dragon partner for this adventure!");
-		addWait(3);
-		System.out.println("1)\n" + "Name: Ruby\n" + "Type: Fire\n" + "HP: 100\n" + "Attacks: \n" + "\tFire Breath: \n"
-				+ "\t\tDmg: 34\n" + "\t\tType: Fire\n" + "\tTail wham:\n" + "\t\tDmg 30\n" + "\t\tType: Normal\n"
-				+ "2)\n" + "Name: Jade\n" + "Type: Earth\n" + "HP: 100\n" + "Attacks: \n" + "\tGround pound: \n"
-				+ "\t\tDmg: 34\n" + "\t\tType: Earth\n" + "\tTail wham:\n" + "\t\tDmg: 30\n" + "\t\tType: Normal\n"
-				+ "3)\n" + "Name: Aqua\n" + "Type: Water\n" + "HP: 100\n" + "Attacks: \n" + "\tWater jet: \n"
-				+ "\t\tDmg: 34\n" + "\t\tType: Water\n" + "\tTail wham:\n" + "\t\tDmg: 30\n" + "\t\tType Normal");
+		addWait(1);
+		System.out.println(
+				"           \t1)       \t2)           \t3)\n"
+				+ "Name:    \tRuby        \tJade         \tAqua\n"
+				+ "Type:    \tFire        \tEarth        \tWater\n"
+				+ "HP:      \t100         \t100          \t100\n"
+				+ "Attack 1:\tFire Breath \tGround Pound \tWater Jet\n"
+				+ "Dmg:     \t34          \t34           \t34\n"
+				+ "Type:    \tFire        \tEarth        \tWater\n"
+				+ "Attack 2:\tTail Wham   \tTail Wham    \tTail Wham\n"
+				+ "Dmg:     \t30          \t30           \t30\n"
+				+ "Type:    \tNormal      \tNormal       \tNormal\n"
+				);
+		addWait(2);
 		System.out.println("Input 1, 2, or 3 to make your selection in the next line: ");
 	}
 
 	public void printWelcomeEnd(Dragon dragon) {
 		System.out
 				.println("\nCongratulations! You have selected your quest companion, " + dragon.getDragonName() + "!");
-		addWait(3);
+		addWait(1);
 	}
 
 	public void printMainMenu(int userScore) {
@@ -84,9 +93,9 @@ public class ScriptManager {
 		}
 		addWait(3);
 		System.out.println("\nWhat will you do?\n");
-		addWait(3);
+		addWait(1);
 		System.out.println("1) Attack\n" + "2) Run away");
-		addWait(3);
+		addWait(1);
 	}
 
 	public void printAttackSelection(Dragon dragon, Dragon enemyDragon) {
@@ -97,19 +106,19 @@ public class ScriptManager {
 		addWait(3);
 		System.out.println("\nWhat should your dragon do now?\n" + "1) Use " + dragon.getTypeAttack().getAttackName()
 				+ "\n2) Use " + dragon.getNormalAttack().getAttackName() + "\n3) Run away");
-		addWait(3);
+		addWait(1);
 	}
 
 	public void printAttack(Dragon dragon, Attack userAttack, Attack enemyAttack) {
 		System.out.println(
 				"\n" + dragon.getDragonName() + " used " + userAttack.getAttackName() + " to attack the enemy dragon!\n"
 						+ "The enemy dragon used " + enemyAttack.getAttackName() + " to fight back!");
-		addWait(3);
+		addWait(2);
 	}
 
 	public void printWin() {
 		System.out.println("\nThe enemy was defeated! You and your dragon gained 10 experience points from the fight.");
-		addWait(3);
+		addWait(2);
 	}
 
 	public void printRun() {
@@ -118,9 +127,9 @@ public class ScriptManager {
 					"\nYou jump onto your dragon in one fluid moment and fly away before the other dragon even blinks.");
 		} else {
 			System.out.println(
-					"\nYou toss a stone to distract the dragon drawing its attention away from you enough to sneak away quickly.");
+					"\nYou toss a stone to distract the dragon drawing its attention away from you to sneak away quickly.");
 		}
-		addWait(3);
+		addWait(1);
 	}
 
 	public void printlose() {

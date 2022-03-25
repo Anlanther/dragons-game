@@ -69,7 +69,6 @@ public class Adventure {
 		if (adventureSelection.equals("Attack")) {
 			boolean didRun = startAttackLoop(user, enemyDragon);
 			if (didRun) {
-				script.printRun();
 				promptBackToMain(user);
 			}
 			if (user.getDragon().getDragonHp() <= 0) {
@@ -83,7 +82,24 @@ public class Adventure {
 			}
 		} else {
 			script.printRun();
-			promptBackToMain(user);
+			Random runaway = new Random();
+			int run = runaway.nextInt(10);
+			if (run==1|| run ==2 || run ==3) {
+				System.out.println("The enemy dragon manages to keep its eyes on you, you guys failed to run away and need to act fast");
+				boolean didRun = startAttackLoop(user, enemyDragon);
+				if (didRun) {
+					promptBackToMain(user);
+				}
+				if (user.getDragon().getDragonHp() <= 0) {
+					script.printlose();
+					script.printEnd(user.getScore());
+				}
+				if (enemyDragon.getDragonHp() <= 0) {
+					score.updateScore(user);
+					script.printWin();
+					promptBackToMain(user);
+				}
+			}else promptBackToMain(user);
 		}
 	}
 
@@ -110,7 +126,14 @@ public class Adventure {
 			script.printAttackSelection(user.getDragon(), enemyDragon);
 			userAttack = interpreter.getAction(user.getDragon()); // run should be one of the options still
 			if (userAttack == null) {
-				break;
+				script.printRun();
+				Random runaway = new Random();
+				int run = runaway.nextInt(10);
+				if (run==1|| run ==2 || run ==3) {
+					System.out.println("The enemy dragon manages to keep its eyes on you, you guys failed to run away and need to act fast");
+					continue;
+				}
+				else break;
 			}
 			Attack enemyAttack = stat.captureAttacks(userAttack, user.getDragon(), enemyDragon);
 			if (user.getDragon().getDragonHp() <= 0 || enemyDragon.getDragonHp() <= 0) {
