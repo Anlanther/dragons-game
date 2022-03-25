@@ -68,7 +68,7 @@ public class ScriptManager {
 		if (attack % 2 == 0) {
 			System.out.println("\nYou want to make sure you and your dragon are all well taken care of "
 					+ "\nand so you go to town to rest and have a healer check over your companion. \n" + dragonName
-					+ " is now now fully healed.");
+					+ " is now fully healed.");
 		} else {
 			System.out.println("\nYou rush to the town and have a healer check on your dragon while also "
 					+ "\ntaking a well deserved break. After a quick nap and some snacks you and your "
